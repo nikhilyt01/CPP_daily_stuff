@@ -1,0 +1,17 @@
+# Binaries
+/bin/
+bin/
+
+# macOS
+.DS_Store
+
+# Xcode / clang
+*.dSYM/
+*.out
+
+# VS Code workspace settings (keep project-specific settings but ignore personal ones if needed)
+.vscode/*.code-workspace
+
+# Node / Python / other common
+node_modules/
+__pycache__/
