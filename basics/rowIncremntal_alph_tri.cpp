@@ -8,7 +8,8 @@ int main() {
   int row = 1;
   // A 
   // B C 
-  // D E F 
+  // C D E
+  // D E F G
 
   while (row <= n) {
     int col = 1;                         // can also be done using extra int "value=row "and then 
