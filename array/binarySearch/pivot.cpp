@@ -15,7 +15,7 @@ int getPivot(int arr[],int size)
     }
     mid=s+(e-s)/2;
 }
-return e+1;
+return s;
 }
 int main(){
     int arr[5]={3,8,10,1,2};
