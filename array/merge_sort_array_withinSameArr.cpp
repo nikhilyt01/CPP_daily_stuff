@@ -30,10 +30,11 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         }
     }
 int main(){
-    vector<int> nums1 = {1, 5, 6, 0, 0, 0}; // nums1 has enough space for nums2
+    
+    vector<int> nums1 = {1, 2, 3, 0, 0, 0};
     vector<int> nums2 = {2, 5, 6};
     int m = 3; // Number of valid elements in nums1
-    int n = 3; // Number of elements in nums2
+    int n = 3; // Number of valid elements in nums2
 
     merge(nums1, m, nums2, n);
 
