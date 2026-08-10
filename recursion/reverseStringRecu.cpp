@@ -1,20 +1,22 @@
 #include<iostream>
 using namespace std;
 
-void reverse(string &str,int i ,int j){
+void reverse(string &str,int i ){
     cout<<"string now is: "<<str<<endl;
-    if(i>j){
+    int n=str.length();
+    if(i>n-1-i){
         return ;
     }
-    swap(str[i],str[j]);
+    swap(str[i],str[n-1-i]);
+    i++;
     
-    reverse(str,i+1,j-1);
+    reverse(str,i);
 
 
 }
 int main(){
     string name="nikhil";
-    reverse(name,0,name.length()-1);
+    reverse(name,0);
     cout<<endl;
     cout<<name<<endl;
     
