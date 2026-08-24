@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 // currently tle
+//leetcode 70 climbing stairs ,code studio 
 int countDistinctWays(int nStairs) {
     //  Write your code here.
     //base case 
