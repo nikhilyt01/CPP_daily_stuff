@@ -18,7 +18,7 @@ bool pal(string &str,int i ,int j){
 
 }
 int main(){
-    string name="namana";
+    string name="naman";
     if(pal(name,0,name.length()-1)){
         cout<<"palindrome"<<endl;
     }
