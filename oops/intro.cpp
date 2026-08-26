@@ -7,9 +7,12 @@ class Hero{
     int health=0;
     public:
     char level='A';
+    char *name;
 
     Hero(){
         cout<<"constructor called"<<endl;
+        //dynamically as it has more memory than stack memory
+        name=new char[100];
     }
 
     //parameterized constructor
@@ -23,17 +26,25 @@ class Hero{
         this->level=level;
     }
     //copy constructor 
-    Hero(Hero &temo){
+    /* Hero(Hero &temo){
         cout<<"copy constructor called"<<endl;
         this->health=temo.health;
         this->level=temo.level; 
-    }
+    } */
     void print(){
-        cout<<"level is:"<<level<<endl;
-        cout<<"health is :"<<health<<endl;
+        cout<<endl;
+        cout<<"[ name is:"<<name;
+        cout<<" level is:"<<level;
+        cout<<" health is :"<<health<<" ]"<<endl;
     }
     void setHealth(int h){
         health=h;
+    }
+    void setLevel(char ch){
+        level=ch;
+    }
+    void setName(char name[]){
+        strcpy(this->name,name);
     }
     int getHealth(){
         return health;
@@ -42,10 +53,24 @@ class Hero{
 };
 
 int main(){
-    Hero r(18,'B');
-    r.print();
-    Hero s(r); //copy constructor
-    s.print();
+    Hero h1;
+    h1.setHealth(12);
+    h1.setLevel('B');
+    char name[7]="nikhil";
+    h1.setName(name);
+    h1.print();
+    Hero h2(h1);
+    h2.print();
+
+    h1.name[0]='A';
+    h1.print();
+    cout<<"h2 after changing h1 name"<<endl;
+    h2.print();
+    
+    //Hero r(18,'B');
+    //r.print();
+    //Hero s(r); //copy constructor
+    //s.print();
 
 
     //static allocation
