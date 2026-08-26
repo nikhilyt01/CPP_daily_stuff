@@ -8,6 +8,7 @@ class Hero{
     public:
     char level='A';
     char *name;
+    static int timetocomplete;
 
     Hero(){
         cout<<"constructor called"<<endl;
@@ -49,23 +50,18 @@ class Hero{
     int getHealth(){
         return health;
     }
+    static int random(){
+        return timetocomplete;
+    }
     
 };
+int Hero :: timetocomplete = 5;
 
 int main(){
-    Hero h1;
-    h1.setHealth(12);
-    h1.setLevel('B');
-    char name[7]="nikhil";
-    h1.setName(name);
-    h1.print();
-    Hero h2(h1);
-    h2.print();
-
-    h1.name[0]='A';
-    h1.print();
-    cout<<"h2 after changing h1 name"<<endl;
-    h2.print();
+   cout<< Hero :: timetocomplete<<endl;
+   Hero a(23);
+   cout<<a.timetocomplete<<endl;
+   cout<<Hero::random()<<endl;
     
     //Hero r(18,'B');
     //r.print();
