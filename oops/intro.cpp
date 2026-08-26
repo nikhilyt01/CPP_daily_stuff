@@ -22,6 +22,12 @@ class Hero{
         this->health=health;
         this->level=level;
     }
+    //copy constructor 
+    Hero(Hero &temo){
+        cout<<"copy constructor called"<<endl;
+        this->health=temo.health;
+        this->level=temo.level; 
+    }
     void print(){
         cout<<"level is:"<<level<<endl;
         cout<<"health is :"<<health<<endl;
