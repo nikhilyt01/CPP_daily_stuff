@@ -2,12 +2,14 @@
 using namespace std;
 
 class Human{
+    private:
+     int height;
     protected:
     int health;
     public:
     int age;
     int weight;;
-    int height;
+    
     public:
     int getAge(){
         return this->age;
@@ -21,13 +23,16 @@ class Male:protected Human{
     string color;
     void detail(){
         cout<<"weight: "<<weight<<endl;
-        cout<<"height: "<<height<<endl;
-        cout<<"health: "<<health<<endl;
+        cout<<"health: "<<health<<endl;//protected member can be accessed in derived class
+    }
+    int getHeight(){
+       return height;
     }
 };
 int main(){
    Male m1;
    m1.detail();
+   m1.getHeight();
    
    
 }
