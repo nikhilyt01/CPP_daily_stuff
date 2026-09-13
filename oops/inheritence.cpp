@@ -2,13 +2,13 @@
 using namespace std;
 
 class Human{
-    private:
+    private: // private Main class hai to anyhow not accessible in subclass i.e line 35 me
      int height;
     protected:
     int health;
     public:
     int age;
-    int weight;;
+    int weight;
     
     public:
     int getAge(){
@@ -17,22 +17,27 @@ class Human{
     void setAge(int age){
         this->age=age;
     }
+    int getHeight(){
+        return this->height;
+    }
 };
-class Male:protected Human{
+class Male:private Human{
     public:
     string color;
     void detail(){
         cout<<"weight: "<<weight<<endl;
         cout<<"health: "<<health<<endl;//protected member can be accessed in derived class
     }
-    int getHeight(){
-       return height;
+    int getHealth(){
+       return this ->health ;
     }
 };
 int main(){
    Male m1;
    m1.detail();
-   m1.getHeight();
-   
+   cout<<m1.getHealth()<<endl;
+   //cout<<m1.getHeight()<<endl;// private can be accessed within class only not even by subclass
+   Human h1;
+   cout<<h1.getHeight() <<endl;// private can be accessed within class only
    
 }
