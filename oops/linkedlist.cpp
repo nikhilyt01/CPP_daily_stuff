@@ -51,7 +51,7 @@ void insertAtposition(Node* &tail,Node* &head,int pos,int data){
     }
     //case2:tail update if last pos input hai to
     if(temp->next==NULL){
-        insertAtHead(tail,data);
+        insertAtTail(tail,data);
         return;
     }
     //main insert at middle
