@@ -18,6 +18,7 @@ class Human{
     }
 
 };
+//multiple inheritance
 class Hybrid:public Animal,public Human{
 
 };
