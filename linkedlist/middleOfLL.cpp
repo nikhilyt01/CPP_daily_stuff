@@ -3,6 +3,7 @@ using namespace std;
 
 //problem no:876 leetcode
 //random copied struct from leetcode
+// approch: first count the number of nodes in the linked list and then find the middle node by traversing again
 struct ListNode {
      int val;
      ListNode *next;
@@ -25,4 +26,4 @@ ListNode* middleNode(ListNode* head) {
           i++;
         }
         return temp;
-}
+};
