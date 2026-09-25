@@ -68,7 +68,7 @@ void deleteNode(int pos,Node* &head,Node* &tail){
         //m/m free
         temp->next=NULL;
         delete temp;
-    }
+    }else{
     //case 2:delete middle or last node
     Node* prev=NULL;
     Node* curr=head;
@@ -89,6 +89,7 @@ void deleteNode(int pos,Node* &head,Node* &tail){
     }
     curr->next=NULL;
     delete curr;
+}
     
 }
 void printLL(Node* &head){
@@ -122,7 +123,7 @@ int main(){
     printLL(head);
     cout<<"head:"<<head->data<<endl;
     cout<<"tail:"<<tail->data<<endl;
-    deleteNode(4,head,tail);
+    deleteNode(1,head,tail);
     printLL(head);
     cout<<"head:"<<head->data<<endl;
     cout<<"tail:"<<tail->data<<endl;
