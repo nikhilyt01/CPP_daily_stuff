@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+//leetcode 46
 
 void solve(vector<int>& nums,int index,vector<vector<int>>& ans){
     if(index>=nums.size()){
