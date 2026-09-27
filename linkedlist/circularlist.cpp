@@ -49,18 +49,35 @@ void deleteNode(Node* &tail,int element){
         return;
     }else{
     //suppose element is present in list
-    Node* prev=tail;
-    Node* curr=tail->next;
-    while(curr->data!=element){
-        prev=curr;
-        curr=curr->next;
+    if(tail->next==tail){ // only 1 node is present
+        if(tail->data==element){
+            tail->next=NULL;
+            delete tail;
+            tail=NULL;
+            return;
+        }else{
+            cout<<"element "<<element<<" not found in the list"<<endl;
+            return;
+        }
     }
-     if(tail==curr){
-        tail=prev;
-    }
-     if(curr==prev){
-        tail=NULL;
-    }
+    
+        Node* prev=tail;
+        Node* curr=tail->next;
+        do{
+            if(curr->data==element){
+                break;// element found
+            }
+            prev=curr;
+            curr=curr->next;
+
+        }while(curr!=tail->next); //false hogya yani 1 cycle complete hogya and element not found
+        if(curr->data!=element){
+            cout<<"element "<<element<<" not found in the list"<<endl;
+            return;
+        }
+        if(curr==tail){
+            tail=prev; //tail ko update krdia
+        }
         // yani elemet mil gya hai or Curr usko point kr rha hai
         prev->next=curr->next;
         curr->next=NULL;
@@ -71,7 +88,7 @@ void deleteNode(Node* &tail,int element){
 };
 void print(Node* tail){
     if(tail==NULL){
-        cout<<"lits is empty";
+        cout<<"lits is empty"<<endl;
         return;
     }
     Node* temp=tail;
@@ -87,10 +104,11 @@ void print(Node* tail){
 int main(){
     Node* tail=NULL;
     insertNode(tail,5,3);
-    
     print(tail);
     deleteNode(tail,3);
     print(tail);
+    deleteNode(tail,3);
+    
 
 };
 
