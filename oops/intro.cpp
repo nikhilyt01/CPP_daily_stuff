@@ -5,11 +5,11 @@ using namespace std;
 class Hero{
     
     int health=0;
+    // public is must for constructor 
     public:
     char level='A';
     char *name;
     static int timetocomplete;
-    static int timetoFuck;
 
     Hero(){
         cout<<"constructor called"<<endl;
@@ -56,7 +56,6 @@ class Hero{
     }
     
 };
-int Hero :: timetoFuck=6;
 int Hero :: timetocomplete = 5;
 
 int main(){
@@ -64,7 +63,6 @@ int main(){
    Hero a(23);
    cout<<a.timetocomplete<<endl;
    cout<<Hero::random()<<endl;
-   cout<<"time to fuck"<<Hero::timetoFuck<<endl;
     
     //Hero r(18,'B');
     //r.print();
@@ -89,3 +87,4 @@ int main(){
 }
 
    
+ 
