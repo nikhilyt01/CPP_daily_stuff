@@ -116,13 +116,13 @@ bool checkCircluar(Node* head){
     if(head==NULL){
         return false;// empty means not circluar
     }
-    Node* temp=head;
+    Node* temp=head->next;
     // Jab tak temp NULL na ho jaye aur temp wapas head tak na pahunch jaye
     while(temp!=NULL && temp!=head){
         
        temp=temp->next;
     }
-    if(temp==head){ // yani waps head pe aya mtb cycle
+    if(temp==head){ // yani waps head pe aya mtb circular hai
         return true;
     }
     return false;
