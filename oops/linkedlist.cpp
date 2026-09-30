@@ -118,6 +118,24 @@ bool checkCircluar(Node* head){
     return false;
 };
 /// ----------Map(map <Node*,bool>visited) STL logic---------
+Node* detectLoop(Node* head){ // using basic maps logic
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    map <Node*,bool> visited;
+    Node* temp=head;
+    while(temp!=NULL){
+        if(visited[temp]==true){
+            //cout<<"loop is present at node:"<<temp->data<<endl;
+            return temp;
+        }
+        visited[temp]=true;
+        temp=temp->next;
+    }
+    return NULL;
+
+};
 
 int main(){
     Node* node1=new Node(10);
@@ -142,13 +160,9 @@ int main(){
     cout<<"head:"<<head->data<<endl;
     cout<<"tail:"<<tail->data<<endl;
 
-    //tail->next=head->next; // creating loop
+    tail->next=head->next; // creating loop
 
-   if(checkCircluar(head)){
-    cout<<"linkedlist is circular"<<endl;
-   }else{
-    cout<<"linkedlist is not circular"<<endl;      
-   }; 
+   
     
 
 }
