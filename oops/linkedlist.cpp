@@ -136,6 +136,28 @@ Node* detectLoop(Node* head){ // using basic maps logic
     return NULL;
 
 };
+// --------------now FCD floyd's cycle detection algo
+Node* flyodDetectLoop(Node* head){ // use of slow and fast pointer
+    if(head==NULL){
+        return NULL;
+    }
+    Node *slow=head;
+    Node* fast =head;
+    while(slow!=NULL && fast!=NULL){
+        fast=fast->next;
+        if(fast!=NULL){
+            fast=fast->next;
+        }
+        slow=slow->next;
+        if(slow==fast){
+            //cout<<"loop is present at node: "<<slow->data<<endl;
+            return slow;
+        }
+    }
+    return NULL;
+    
+};
+
 
 int main(){
     Node* node1=new Node(10);
@@ -162,7 +184,21 @@ int main(){
 
     tail->next=head->next; // creating loop
 
-   
+    if((detectLoop(head)==NULL)&& (checkCircluar(head))){  // agar loop nhi ho. to check circular bhi run na ho nhi to infinite loop me chldega checkcircular gelchodaa
+        cout<<"circular list"<<endl;
+    }else{
+        cout<<"not circular list"<<endl;
+    };
+
+    Node * loop=flyodDetectLoop(head);
+    if(loop!=NULL){
+        cout<<"loop is present at node:"<<loop->data<<endl;
+    }else{
+        cout<<"loop is not present"<<endl;  
+        
+    }
+
+    
     
 
 }
