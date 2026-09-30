@@ -1,4 +1,5 @@
 #include<iostream>
+#include<map>
 using namespace std;
 
 class Node{
@@ -92,7 +93,7 @@ void deleteNode(int pos,Node* &head,Node* &tail){
 }
     
 }
-void printLL(Node* &head){
+void printLL(Node* head){
     Node* temp=head;
     cout<<"linkedlist is like: ";
     while(temp!=NULL){
@@ -100,7 +101,24 @@ void printLL(Node* &head){
         temp=temp->next;
     }
     cout<<endl;
-}
+};
+bool checkCircluar(Node* head){
+    if(head==NULL){
+        return false;// empty means not circluar
+    }
+    Node* temp=head->next; // nhi to initially head pe hi hoga to while loop run nhi hoga
+    // Jab tak temp NULL na ho jaye aur temp wapas head tak na pahunch jaye
+    while(temp!=NULL && temp!=head){
+        
+       temp=temp->next;
+    }
+    if(temp==head){ // yani waps head pe aya mtb cycle
+        return true;
+    }
+    return false;
+};
+/// ----------Map(map <Node*,bool>visited) STL logic---------
+
 int main(){
     Node* node1=new Node(10);
     //cout<<"node:"<<node1->data<<endl;
@@ -119,13 +137,18 @@ int main(){
     printLL(head);
     cout<<"head:"<<head->data<<endl;
     cout<<"tail:"<<tail->data<<endl;
-    deleteNode(3,head,tail);
-    printLL(head);
-    cout<<"head:"<<head->data<<endl;
-    cout<<"tail:"<<tail->data<<endl;
     deleteNode(1,head,tail);
     printLL(head);
     cout<<"head:"<<head->data<<endl;
     cout<<"tail:"<<tail->data<<endl;
+
+    //tail->next=head->next; // creating loop
+
+   if(checkCircluar(head)){
+    cout<<"linkedlist is circular"<<endl;
+   }else{
+    cout<<"linkedlist is not circular"<<endl;      
+   }; 
+    
 
 }
