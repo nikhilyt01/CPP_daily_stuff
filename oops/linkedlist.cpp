@@ -157,7 +157,45 @@ Node* flyodDetectLoop(Node* head){ // use of slow and fast pointer
     return NULL;
     
 };
+//--------------startiing node of loop
+Node* startingNodeofLoop(Node* head){
+    if(head==NULL){
+        return NULL;
+    };
 
+    Node* slow=head;
+    Node*  intersection=flyodDetectLoop(head);
+    if(intersection==NULL){
+        cout<<"no loop present"<<endl;
+        return NULL;
+    }
+    while(slow!=intersection){
+        slow=slow->next;
+        intersection=intersection->next;
+    };
+    //cout<<"starting node of loop is:"<<slow->data<<endl;
+    return slow;
+
+    
+};
+Node* removeLoop(Node* head){
+    if(head==NULL){
+        return NULL;
+    }
+    Node* startofLoop=startingNodeofLoop(head);
+    if(startofLoop==NULL){
+        cout<<"no loop present"<<endl;
+        return head;
+    }
+    Node* temp=startofLoop;
+    while(temp->next!=startofLoop){
+        temp=temp->next;
+    };
+    temp->next=NULL;
+    return head;
+
+    
+}
 
 int main(){
     Node* node1=new Node(10);
@@ -198,7 +236,11 @@ int main(){
         
     }
 
-    
+    Node* startNode=startingNodeofLoop(head);
+    //cout<<"starting node of loop is:"<<startNode->data<<endl;
+    Node* loopRemoved=removeLoop(head);
+    cout<<"loop removed"<<endl;
+    printLL(loopRemoved);
     
 
 }
